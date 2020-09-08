@@ -1,0 +1,10 @@
+# File              : main.yml
+# Author            : Rustam Khafizov <super.rustamm@gmail.com>
+# Date              : 08.09.2020
+# Last Modified Date: 08.09.2020
+# Last Modified By  : Rustam Khafizov <super.rustamm@gmail.com>
+
+---
+state: "install"
+storage_path: "/kvm/disks"
+iso_path: "/kvm/iso"

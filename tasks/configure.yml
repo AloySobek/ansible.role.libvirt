@@ -1,0 +1,31 @@
+# File              : configure.yml
+# Author            : Rustam Khafizov <super.rustamm@gmail.com>
+# Date              : 08.09.2020
+# Last Modified Date: 08.09.2020
+# Last Modified By  : Rustam Khafizov <super.rustamm@gmail.com>
+
+---
+- name: ensuring storage path exists
+  become: true
+  file:
+    path: "{{ storage_path }}"
+    state: directory
+
+- name: ensuring iso storage path exists
+  become: true
+  file:
+    path: "{{ iso_path }}"
+    state: directory
+
+- name: downloading OS images
+  become: true
+  get_url:
+    url: "{{ item.url }}"
+    path: "{{ iso_path }}"
+    checksum: "{{ item.checksum_algo_url | default('') }}"
+
+- name: enabling libvirt default network
+  become: true
+  virt_net:
+    name: default
+    state: active

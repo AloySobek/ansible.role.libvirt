@@ -1,0 +1,22 @@
+# File              : install.yml
+# Author            : Rustam Khafizov <super.rustamm@gmail.com>
+# Date              : 08.09.2020
+# Last Modified Date: 08.09.2020
+# Last Modified By  : Rustam Khafizov <super.rustamm@gmail.com>
+
+---
+- name: updating before installation
+  become: true
+  apt:
+    update_cache: true
+    cache_valid_time: 0
+    force_apt_get: true
+    upgrade: dist
+
+- name: installing dependencies
+  become: true
+  apt:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ dependencies }}"
+  notify: start libvirtd

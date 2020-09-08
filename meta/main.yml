@@ -1,0 +1,21 @@
+# File              : main.yml
+# Author            : Rustam Khafizov <super.rustamm@gmail.com>
+# Date              : 08.09.2020
+# Last Modified Date: 08.09.2020
+# Last Modified By  : Rustam Khafizov <super.rustamm@gmail.com>
+
+---
+galaxy_info:
+  author: AloySobek
+  description: Creating virtual machienes from xml files with libvirt
+  company: middle_earth
+  license: MIT
+  min_ansible_version: 2.9
+  platforms:
+    - name: Debian
+      versions: buster
+  galaxy_tags:
+    - libvirt
+    - vm
+    - kvm
+dependencies: []
